@@ -1,0 +1,41 @@
+---
+title: "t1"
+author: "MKW"
+date: "2021/11/29"
+output: html_document
+---
+
+```{r}
+e <- (10000-7000)/(10000+7000)
+a <- 17000/2
+r <- a*(1-e^2)/(1+e*cos(90))
+data1 <- 8500*(1-(0.1765)^2)
+
+data2 <- 1+0.1765*cos(90)
+
+data1/data2 - 6378.14
+
+install.packages("asteRisk")
+
+library(asteRisk)
+
+library(anomaly)
+
+str(iris)
+plot(iris$Sepal.Length, iris$Sepal.Width, col = iris$Species)
+dim(iris)
+
+s <- sample(150, 100)
+data <- c("Petal.Length","Petal.Width","Species")
+itrain <- iris[s,data]
+itest <- iris[-s,data]
+
+svmfit <- svm(Species ~., data = itrain, kernel = "linear", cost = .1, scale = FALSE)
+summary(svmfit)
+plot(svmfit, itrain[,data])
+
+install.packages("anomalize")
+
+
+install.packages("s20x")
+```
