@@ -37,5 +37,10 @@ plot(svmfit, itrain[,data])
 install.packages("anomalize")
 
 
-install.packages("s20x")
+install.packages("plotly")
+
+library(plotly)
+library(ggplot2)
+p <- ggplot(mtcars, aes(x = mpg, y = hp, color = cyl)) + geom_point(pch = 16)
+ggplotly(p)
 ```
